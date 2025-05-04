@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model RepositoryPattern.Models.Employee
+@{
+    ViewData["Title"] = "Create";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="row">
+    <div class="">
+        <form asp-action="Create">
+            <div>
+                <p class="display-6"> Create a Employee </p>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="Name" for="exampleFormControlInput1" class="form-label">Type Your Name</label>
+                <input asp-for="Name" type="text" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="mb-3">
+                <label asp-for="City" for="exampleFormControlInput" class="form-label">Type Your City</label>
+                <input asp-for="City" class="form-control" id="exampleFormControlInput" />
+            </div>
+            <div class="form-group">
+                <input id="inputCreate" type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $("#inputCreate").click(function () {
+        alert("It is created!");
+    });
+</script>

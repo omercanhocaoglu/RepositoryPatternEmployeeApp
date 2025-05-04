@@ -1,0 +1,34 @@
+﻿@model RepositoryPattern.Models.Employee
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+@using System.Globalization
+
+<div>
+    <h2>Are you sure you want to delete this employee?</h2>
+    <div class="p-2"> 
+        <p class="fw-bold">Name: 
+            <span class="fw-normal"> @CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Model.Name.ToLower()) </span>
+        </p>
+        <p class="fw-bold">City: <span class="fw-normal"> @CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Model.City.ToLower()) </span> </p>
+    </div>
+</div>
+
+<form asp-action="Delete" method="post" class="mt-2">
+    <!-- Employee id'yi gizli olarak gönderiyoruz -->
+    <input type="hidden" asp-for="Id" />
+    <input id="inputDelete" type="submit" value="Delete" class="btn btn-danger" />
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+<div id="deleteAlert" class="alert alert-success alert-dismissible fade show d-none" role="alert">
+    Silme işlemi başarıyla gerçekleşti!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<script>
+     $("#inputDelete").click(function () {
+         alert("It is deleted!")
+     });
+
+</script>

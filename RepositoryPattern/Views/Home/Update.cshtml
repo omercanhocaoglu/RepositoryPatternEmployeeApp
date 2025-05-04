@@ -1,0 +1,31 @@
+﻿@model RepositoryPattern.Models.Employee
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout"; 
+}
+
+<h2>Edit Employee</h2>
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <p class="display-6"> Update a Employee </p>
+    </div>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="Name" for="exampleFormControlInput1" class="form-label">Type Your Name</label>
+        <input asp-for="Name" type="text" class="form-control" id="exampleFormControlInput1">
+    </div>
+    <div class="mb-3">
+        <label asp-for="City" for="exampleFormControlInput" class="form-label">Type Your City</label>
+        <input asp-for="City" class="form-control" id="exampleFormControlInput" />
+    </div>
+    <button id="buttonSave" type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+<script>
+    $("#buttonSave").click(function () {
+        alert("It is updated!");
+    });
+</script>
